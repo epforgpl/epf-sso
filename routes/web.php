@@ -18,8 +18,8 @@ Route::post('oauth/ssologin', 'Sso\SsoLoginController@authenticate');
 Route::get('oauth/amiloggedin', 'Sso\AmILoggedInController@handleRequest');
 Route::get('oauth/jwks', 'Sso\JwksController@getJwks');
 
-Route::get('oauth/google', 'Sso\MyLoginController@redirectToGoogle');
-Route::get('oauth/google/callback', 'Sso\MyLoginController@handleGoogleCallback');
+Route::get('oauth/google', 'Sso\SsoLoginController@redirectToGoogle');
+Route::get('oauth/google/callback', 'Sso\SsoLoginController@handleGoogleCallback');
 
 Route::get('/', function () {
     return view('welcome');
