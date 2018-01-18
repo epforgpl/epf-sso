@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Sso;
 
-use App\SocialUser;
-use App\User;
+use App\Models\SocialUser;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
