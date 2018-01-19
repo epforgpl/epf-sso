@@ -23,6 +23,7 @@ class AuthorizationCodeController extends OAuth2BaseController
             // in the session under the same name.
             session(['epf_client_id' => $request->input('client_id')]);
             session(['epf_nonce' => $request->input('nonce')]);
+            session(['epf_redirect_uri' => $request->input('redirect_uri')]);
             session(['epf_scope' => $request->input('scope')]);
             session(['epf_state' => $request->input('state')]);
             return view('login');

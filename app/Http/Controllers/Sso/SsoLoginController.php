@@ -5,17 +5,18 @@ namespace App\Http\Controllers\Sso;
 use App\Models\SocialUser;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 
-
-class SsoLoginController extends Controller
+class SsoLoginController extends BaseController
 {
 
     public function authenticate(Request $request)
     {
         $client_id = session('epf_client_id');
         $nonce = session('epf_nonce');
+        $client_redirect_uri = session('epf_redirect_uri');
         $scope = session('epf_scope');
         $state = session('epf_state');
         $email = $request->input('email');
@@ -23,13 +24,14 @@ class SsoLoginController extends Controller
 
         if (($client_id !== null) && ($state !== null)
             && Auth::attempt(['email' => $email, 'password' => $password])) {
-            $redirect_uri = 'oauth/authorization';
-            $redirect_uri .= '?state=' .  $state;
-            $redirect_uri .= '&client_id=' . $client_id;
-            $redirect_uri .= '&nonce=' . $nonce;
-            $redirect_uri .= '&scope=' . urlencode($scope);
-            $redirect_uri .= '&response_type=code';
-            return redirect()->intended($redirect_uri);
+            $server_redirect_uri = 'oauth/authorization';
+            $server_redirect_uri .= '?state=' .  $state;
+            $server_redirect_uri .= '&client_id=' . $client_id;
+            $server_redirect_uri .= '&nonce=' . $nonce;
+            $server_redirect_uri .= '&redirect_uri=' . $client_redirect_uri;
+            $server_redirect_uri .= '&scope=' . urlencode($scope);
+            $server_redirect_uri .= '&response_type=code';
+            return redirect()->intended($server_redirect_uri);
         }
     }
 
@@ -48,6 +50,7 @@ class SsoLoginController extends Controller
         // Note that 'state' must be retrieved before we do Auth::login().
         $client_id = session('epf_client_id');
         $nonce = session('epf_nonce');
+        $client_redirect_uri = session('epf_redirect_uri');
         $scope = session('epf_scope');
         $state = session('epf_state');
 
@@ -55,13 +58,14 @@ class SsoLoginController extends Controller
         $user = $this->createOrGetUser($google_user, 'google');
         Auth::login($user);
 
-        $redirect_uri = 'oauth/authorization';
-        $redirect_uri .= '?state=' .  $state;
-        $redirect_uri .= '&client_id=' . $client_id;
-        $redirect_uri .= '&nonce=' . $nonce;
-        $redirect_uri .= '&scope=' . urlencode($scope);
-        $redirect_uri .= '&response_type=code';
-        return redirect()->intended($redirect_uri);
+        $server_redirect_uri = 'oauth/authorization';
+        $server_redirect_uri .= '?state=' .  $state;
+        $server_redirect_uri .= '&client_id=' . $client_id;
+        $server_redirect_uri .= '&nonce=' . $nonce;
+        $server_redirect_uri .= '&redirect_uri=' . $client_redirect_uri;
+        $server_redirect_uri .= '&scope=' . urlencode($scope);
+        $server_redirect_uri .= '&response_type=code';
+        return redirect()->intended($server_redirect_uri);
     }
 
     private function createOrGetUser(\Laravel\Socialite\Two\User $external_social_user, string $provider)
