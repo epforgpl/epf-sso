@@ -4,8 +4,10 @@ Centralized login for external users to various EPF services.
 ## Installation
 
 - Clone the repository.
+- Set up a domain on which the server runs. Let's assume it's `http://epf-sso.local.org`
 - Set up a "Sign in with Google" app according to https://developers.google.com/identity/sign-in/web/sign-in
 - Copy `.env.example` into `.env` and change the following settings:
+   - APP_URL
    - DB_DATABASE
    - DB_USERNAME
    - DB_PASSWORD
@@ -13,7 +15,6 @@ Centralized login for external users to various EPF services.
    - SIGN_IN_W_GOOGLE_CLIENT_SECRET
 - Run the DB migration: `php artisan migrate`
 - Generate and insert a public-private key pair into `oauth_public_keys` table.
-- Set up a domain on which the server runs. Let's assume it's `http://epf-sso.local.org`
 
 ## Setting up example client
 
