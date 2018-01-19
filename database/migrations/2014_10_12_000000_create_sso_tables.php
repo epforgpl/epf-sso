@@ -30,7 +30,7 @@ class CreateSsoTables extends Migration
             $table->integer('user_id')->unsigned();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
-	    });
+        });
 
         // Note - columns marked with "// NN" mean: Making this NOT NULL b/c I don't see a reason for nullable,
         // contrary to setup on https://github.com/bshaffer/oauth2-server-php. If there are problems, can revert.
@@ -47,7 +47,7 @@ class CreateSsoTables extends Migration
             // I couldn't find out the use for this when it's filled in (single user client?)
             $table->string('user_id', 255)->nullable();
             $table->primary('client_id');
-	    });
+        });
 
         Schema::create('oauth_access_tokens', function (Blueprint $table) {
             $table->string('access_token', 255);
@@ -56,7 +56,7 @@ class CreateSsoTables extends Migration
             $table->timestamp('expires');
             $table->string('scope', 4000); // NN
             $table->primary('access_token');
-	    });
+        });
 
         Schema::create('oauth_authorization_codes', function (Blueprint $table) {
             $table->string('authorization_code', 255);
@@ -67,14 +67,14 @@ class CreateSsoTables extends Migration
             $table->string('scope', 4000); // NN
             $table->string('id_token', 1000); // NN
             $table->primary('authorization_code');
-	    });
+        });
 
         Schema::create('oauth_public_keys', function (Blueprint $table) {
             $table->string('client_id', 255)->nullable();
             $table->string('public_key', 2000); // NN
             $table->string('private_key', 2000); // NN
             $table->string('encryption_algorithm', 255)->default('RS256'); // NN
-	    });
+        });
 
         // I'm not sure if we need this table. Adding just in case.
         Schema::create('oauth_scopes', function (Blueprint $table) {
