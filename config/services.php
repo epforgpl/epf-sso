@@ -38,7 +38,7 @@ return [
     'google' => [
         'client_id' => env('SIGN_IN_W_GOOGLE_CLIENT_ID'),
         'client_secret' => env('SIGN_IN_W_GOOGLE_CLIENT_SECRET'),
-        'redirect' => 'http://epf-sso.local/oauth/google/callback',
+        'redirect' => 'http://epf-sso.local.org/oauth/google/callback',
     ],
 
 ];

@@ -17,7 +17,7 @@ class CreateSsoTables extends Migration
             $table->increments('id');
             $table->string('name', 255)->nullable();
             $table->string('email', 255)->unique();
-            $table->boolean('email_verified');
+            $table->boolean('email_verified')->default(false);
             $table->string('password', 255);
             $table->rememberToken();
             $table->timestamps();

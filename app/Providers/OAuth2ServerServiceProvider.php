@@ -29,7 +29,7 @@ class OAuth2ServerServiceProvider extends ServiceProvider
         $this->app->singleton(Server::class, function ($app) {
             // configure the server for OpenID Connect
             $config['use_openid_connect'] = true;
-            $config['issuer'] = 'http://epf-sso.local';
+            $config['issuer'] = 'http://epf-sso.local.org';
 
             $pd = $app->make(Pdo::class);
             $server = new Server($pd, $config);

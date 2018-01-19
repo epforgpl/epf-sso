@@ -27,6 +27,6 @@
             <input type="submit" value="Submit"/>
         </form>
 
-        <button onclick="location.href = 'http://epf-sso.local/oauth/google';">Login w/ Google</button>
+        <button onclick="location.href = 'http://epf-sso.local.org/oauth/google';">Login w/ Google</button>
     </body>
 </html>
