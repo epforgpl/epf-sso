@@ -109,7 +109,8 @@ Centralized login for external users to various EPF services.
 `INSERT INTO oauth_clients VALUES ('myclient', 'mypassword', 'http://sso-client.local/client.php', 
 'authorization_code', 'openid profile email', NULL);`
 
-- Add the client domain to authorized CORS origins in file `config/cors.php` in the server code.
+- Add the client domain to authorized CORS origins in property CORS_ALLOWED_ORIGINS in `.env` in the server code
+  (comma separated).
 - To have a user to log in as, with password equal '`password`' insert into the `users` table:
 
 `INSERT INTO users VALUES ('Joe Doe', 'joe@doe.com', 0, '$2y$10$i1jY612ZotJtn6xj6/GaB.2zGCponTcqAyyW3Mh3JJHcyb6dVjqgq',
