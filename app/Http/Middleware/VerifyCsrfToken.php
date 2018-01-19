@@ -12,6 +12,7 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        //
+        // TODO: Is there a way not to exclude this?
+        'oauth/token'
     ];
 }

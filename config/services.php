@@ -30,9 +30,15 @@ return [
     ],
 
     'stripe' => [
-        'model' => App\User::class,
+        'model' => App\Models\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
+    ],
+
+    'google' => [
+        'client_id' => env('SIGN_IN_W_GOOGLE_CLIENT_ID'),
+        'client_secret' => env('SIGN_IN_W_GOOGLE_CLIENT_SECRET'),
+        'redirect' => url('/') . '/oauth/google/callback',
     ],
 
 ];
