@@ -14,13 +14,14 @@
 Route::get('oauth/authorization', 'Sso\AuthorizationCodeController@handleRequest');
 Route::post('oauth/token', 'Sso\AccessTokenController@handleRequest');
 Route::get('oauth/userinfo', 'Sso\UserInfoController@handleRequest');
-Route::post('oauth/ssologin', 'Sso\SsoLoginController@authenticate');
 Route::get('oauth/amiloggedin', 'Sso\AmILoggedInController@handleRequest')->middleware('cors');;
 Route::get('oauth/jwks', 'Sso\JwksController@getJwks');
 
-Route::get('oauth/google', 'Sso\SsoLoginController@redirectToGoogle');
-Route::get('oauth/google/callback', 'Sso\SsoLoginController@handleGoogleCallback');
+Route::get('oauth/google', 'Auth\LoginController@redirectToGoogle');
+Route::get('oauth/google/callback', 'Auth\LoginController@handleGoogleCallback');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+
+Route::view('bad-request', 'bad-request');
+Route::view('password/reset-success', 'auth.passwords.reset-success');
+Route::view('register-success', 'auth.register-success');
