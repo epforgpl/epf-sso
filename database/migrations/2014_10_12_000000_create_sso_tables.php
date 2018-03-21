@@ -23,6 +23,12 @@ class CreateSsoTables extends Migration
             $table->timestamps();
         });
 
+        Schema::create('password_resets', function (Blueprint $table) {
+            $table->string('email')->index();
+            $table->string('token');
+            $table->timestamp('created_at')->nullable();
+        });
+
         Schema::create('social_users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('provider_user_id', 255);
@@ -110,6 +116,7 @@ class CreateSsoTables extends Migration
     public function down()
     {
         Schema::dropIfExists('users');
+        Schema::dropIfExists('password_resets');
         Schema::dropIfExists('social_users');
         Schema::dropIfExists('oauth_scopes');
         Schema::dropIfExists('oauth_clients');
