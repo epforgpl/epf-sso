@@ -26,19 +26,21 @@ class OAuth2PdoServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(Pdo::class, function ($app) {
+            $db_config = config('database.connections')[config('database.default')];
+
             // create storage object
             return new OAuth2Pdo(
                 // Connection array.
                 [
-                    'dsn' => env('DB_CONNECTION', 'mysql')
-                        . ':dbname=' . env('DB_DATABASE', 'epfsso')
-                        . ';host=' . env('DB_HOST', 'localhost'),
-                    'username' => env('DB_USERNAME', 'epfsso'),
-                    'password' => env('DB_PASSWORD', 'epfsso')
+                    'dsn' => $db_config['driver']
+                        . ':dbname=' . $db_config['database']
+                        . ';host=' . $db_config['host'],
+                    'username' => $db_config['username'],
+                    'password' => $db_config['password']
                 ],
                 // Config array.
                 [
-                    'user_table' => 'users' // Overwriting default name 'oauth_users'.
+                    'user_table' => 'sso_users' // Overwriting default name 'oauth_users'.
                 ]);
         });
     }

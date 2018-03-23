@@ -13,7 +13,7 @@ class CreateSsoTables extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('sso_users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 255)->nullable();
             $table->string('email', 255)->unique();
@@ -23,25 +23,25 @@ class CreateSsoTables extends Migration
             $table->timestamps();
         });
 
-        Schema::create('password_resets', function (Blueprint $table) {
+        Schema::create('sso_password_resets', function (Blueprint $table) {
             $table->string('email')->index();
             $table->string('token');
             $table->timestamp('created_at')->nullable();
         });
 
-        Schema::create('social_users', function (Blueprint $table) {
+        Schema::create('sso_social_users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('provider_user_id', 255);
             $table->string('provider', 255);
             $table->integer('user_id')->unsigned();
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('sso_users');
         });
 
         // Note - columns marked with "// NN" mean: Making this NOT NULL b/c I don't see a reason for nullable,
         // contrary to setup on https://github.com/bshaffer/oauth2-server-php. If there are problems, can revert.
 
-        Schema::create('oauth_clients', function (Blueprint $table) {
+        Schema::create('sso_oauth_clients', function (Blueprint $table) {
             $table->string('client_id', 255);
             $table->string('client_secret', 255); // NN
             $table->string('redirect_uri', 2000); // NN
@@ -55,7 +55,7 @@ class CreateSsoTables extends Migration
             $table->primary('client_id');
         });
 
-        Schema::create('oauth_access_tokens', function (Blueprint $table) {
+        Schema::create('sso_oauth_access_tokens', function (Blueprint $table) {
             $table->string('access_token', 255);
             $table->string('client_id', 255);
             $table->string('user_id', 255); // NN
@@ -64,7 +64,7 @@ class CreateSsoTables extends Migration
             $table->primary('access_token');
         });
 
-        Schema::create('oauth_authorization_codes', function (Blueprint $table) {
+        Schema::create('sso_oauth_authorization_codes', function (Blueprint $table) {
             $table->string('authorization_code', 255);
             $table->string('client_id', 255);
             $table->string('user_id', 255); // NN
@@ -75,7 +75,7 @@ class CreateSsoTables extends Migration
             $table->primary('authorization_code');
         });
 
-        Schema::create('oauth_public_keys', function (Blueprint $table) {
+        Schema::create('sso_oauth_public_keys', function (Blueprint $table) {
             $table->string('client_id', 255)->nullable();
             $table->string('public_key', 2000); // NN
             $table->string('private_key', 2000); // NN
@@ -83,14 +83,14 @@ class CreateSsoTables extends Migration
         });
 
         // I'm not sure if we need this table. Adding just in case.
-        Schema::create('oauth_scopes', function (Blueprint $table) {
+        Schema::create('sso_oauth_scopes', function (Blueprint $table) {
             $table->string('scope', 255);
             $table->boolean('is_default')->default(false); // NN
             $table->primary('scope');
         });
 
         // I'm not sure if we need this table. Adding just in case.
-        Schema::create('oauth_refresh_tokens', function (Blueprint $table) {
+        Schema::create('sso_oauth_refresh_tokens', function (Blueprint $table) {
             $table->string('refresh_token', 255);
             $table->string('client_id', 255);
             $table->string('user_id', 255); // NN
@@ -100,7 +100,7 @@ class CreateSsoTables extends Migration
         });
 
         // I'm not sure if we need this table. Adding just in case.
-        Schema::create('oauth_jwt', function (Blueprint $table) {
+        Schema::create('sso_oauth_jwt', function (Blueprint $table) {
             $table->string('client_id', 255);
             $table->string('subject', 255);
             $table->string('public_key', 2000);
@@ -115,15 +115,15 @@ class CreateSsoTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
-        Schema::dropIfExists('password_resets');
-        Schema::dropIfExists('social_users');
-        Schema::dropIfExists('oauth_scopes');
-        Schema::dropIfExists('oauth_clients');
-        Schema::dropIfExists('oauth_access_tokens');
-        Schema::dropIfExists('oauth_authorization_codes');
-        Schema::dropIfExists('oauth_refresh_tokens');
-        Schema::dropIfExists('oauth_jwt');
-        Schema::dropIfExists('oauth_public_keys');
+        Schema::dropIfExists('sso_users');
+        Schema::dropIfExists('sso_password_resets');
+        Schema::dropIfExists('sso_social_users');
+        Schema::dropIfExists('sso_oauth_scopes');
+        Schema::dropIfExists('sso_oauth_clients');
+        Schema::dropIfExists('sso_oauth_access_tokens');
+        Schema::dropIfExists('sso_oauth_authorization_codes');
+        Schema::dropIfExists('sso_oauth_refresh_tokens');
+        Schema::dropIfExists('sso_oauth_jwt');
+        Schema::dropIfExists('sso_oauth_public_keys');
     }
 }
