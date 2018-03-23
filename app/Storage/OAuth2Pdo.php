@@ -11,14 +11,7 @@ use OAuth2\Storage\ScopeInterface;
 use OAuth2\Storage\PublicKeyInterface;
 use OAuth2\OpenID\Storage\UserClaimsInterface;
 use OAuth2\OpenID\Storage\AuthorizationCodeInterface as OpenIDAuthorizationCodeInterface;
-use OAuth2\Storage\Pdo;
 
-/**
- * Created by PhpStorm.
- * User: jan
- * Date: 1/16/18
- * Time: 3:57 PM
- */
 
 class OAuth2Pdo implements
     AuthorizationCodeInterface,
@@ -43,7 +36,7 @@ class OAuth2Pdo implements
      * @param mixed $connection
      * @param array $config
      *
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
      */
     public function __construct($connection, $config = array())
     {
@@ -71,15 +64,15 @@ class OAuth2Pdo implements
         $connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 
         $this->config = array_merge(array(
-            'client_table' => 'oauth_clients',
-            'access_token_table' => 'oauth_access_tokens',
-            'refresh_token_table' => 'oauth_refresh_tokens',
-            'code_table' => 'oauth_authorization_codes',
-            'user_table' => 'oauth_users',
-            'jwt_table'  => 'oauth_jwt',
-            'jti_table'  => 'oauth_jti',
-            'scope_table'  => 'oauth_scopes',
-            'public_key_table'  => 'oauth_public_keys',
+            'client_table' => 'sso_oauth_clients',
+            'access_token_table' => 'sso_oauth_access_tokens',
+            'refresh_token_table' => 'sso_oauth_refresh_tokens',
+            'code_table' => 'sso_oauth_authorization_codes',
+            'user_table' => 'sso_oauth_users',
+            'jwt_table'  => 'sso_oauth_jwt',
+            'jti_table'  => 'sso_oauth_jti',
+            'scope_table'  => 'sso_oauth_scopes',
+            'public_key_table'  => 'sso_oauth_public_keys',
         ), $config);
     }
 
