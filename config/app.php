@@ -179,6 +179,7 @@ return [
 
         App\Providers\OAuth2PdoServiceProvider::class,
         App\Providers\OAuth2ServerServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
     ],
 
     /*
