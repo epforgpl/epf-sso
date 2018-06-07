@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Sso;
 
-use App\Util\Symfony4Fix\BridgedResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use OAuth2\HttpFoundationBridge\Request as BridgedRequest;
+use OAuth2\HttpFoundationBridge\Response as BridgedResponse;
 
 class AuthorizationCodeController extends OAuth2BaseController
 {
