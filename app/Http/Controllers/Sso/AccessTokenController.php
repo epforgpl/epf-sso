@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Sso;
 
+use App\Util\Symfony4Fix\BridgedResponse;
 use Illuminate\Http\Request;
 use OAuth2\HttpFoundationBridge\Request as BridgedRequest;
-use OAuth2\HttpFoundationBridge\Response as BridgedResponse;
 
 class AccessTokenController extends OAuth2BaseController
 {
