@@ -90,6 +90,7 @@ class LoginController extends Controller
                 'email' => $external_social_user->getEmail(),
                 'name' => $external_social_user->getName(),
                 'password' => 'none',
+                'hash_type' => 'NONE'
             ]);
         }
         $social_user->user()->associate($user);
