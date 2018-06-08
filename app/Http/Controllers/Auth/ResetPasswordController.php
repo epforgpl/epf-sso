@@ -18,7 +18,9 @@ class ResetPasswordController extends Controller
     |
     */
 
-    use ResetsPasswords;
+    use ResetsPasswords {
+        resetPassword as public parentResetPassword;
+    }
 
     /**
      * Where to redirect users after resetting their password.
@@ -35,5 +37,18 @@ class ResetPasswordController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    /**
+     * Reset the given user's password.
+     *
+     * @param  \Illuminate\Contracts\Auth\CanResetPassword  $user
+     * @param  string  $password
+     * @return void
+     */
+    protected function resetPassword($user, $password)
+    {
+        $user->hash_type = 'BCRYPT';
+        $this->parentResetPassword($user, $password);
     }
 }
