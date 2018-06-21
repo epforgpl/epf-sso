@@ -25,3 +25,5 @@ Auth::routes();
 Route::view('bad-request', 'bad-request');
 Route::view('password/reset-success', 'auth.passwords.reset-success');
 Route::view('register-success', 'auth.register-success');
+Route::view('password/change','auth.passwords.change');
+Route::post('password/change','Auth\ChangePasswordController@changePassword')->name('changePassword');
