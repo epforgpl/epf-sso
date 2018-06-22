@@ -51,9 +51,28 @@ class LoginController extends Controller
         return $this->parentLogin($request);
     }
 
+    public function redirectToFacebook()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
     public function redirectToGoogle()
     {
         return Socialite::driver('google')->redirect();
+    }
+
+    /**
+     * Obtain the user information from Facebook.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function handleFacebookCallback() : \Illuminate\Http\RedirectResponse
+    {
+        $this->redirectTo = OAuthUtil::getAuthorizationCodeRedirect();
+        $fb_user = Socialite::driver('facebook')->user();
+        $user = $this->createOrGetUser($fb_user, 'facebook');
+        Auth::login($user);
+        return redirect()->intended($this->redirectTo);
     }
 
     /**

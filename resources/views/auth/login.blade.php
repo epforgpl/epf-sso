@@ -65,6 +65,7 @@
                     </form>
 
                     <button onclick="location.href = '{{ url('/') }}/oauth/google';">Login w/ Google</button>
+                    <button onclick="location.href = '{{ url('/') }}/oauth/facebook';">Login w/ Facebook</button>
                 </div>
             </div>
         </div>
