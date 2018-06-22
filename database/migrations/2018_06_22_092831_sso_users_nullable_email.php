@@ -18,7 +18,8 @@ class SsoUsersNullableEmail extends Migration
     public function up()
     {
         Schema::table('sso_users', function (Blueprint $table) {
-            $table->string('email', 255)->unique()->nullable()->change();
+            $table->dropUnique('sso_users_email_unique');
+            $table->string('email', 255)->unique()->nullable(true)->change();
         });
     }
 
@@ -30,7 +31,8 @@ class SsoUsersNullableEmail extends Migration
     public function down()
     {
         Schema::table('sso_users', function (Blueprint $table) {
-            $table->string('email', 255)->unique()->change();
+            $table->dropUnique('sso_users_email_unique');
+            $table->string('email', 255)->unique()->nullable(false)->change();
         });
     }
 }
