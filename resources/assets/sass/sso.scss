@@ -1,0 +1,19 @@
+/*
+ * Put custom SCSS rules for the SSO portal here.
+ */
+
+// The three rules below are part of 'sticky footer' solution. https://stackoverflow.com/a/12239188
+
+html, body {
+  height: 100%;
+}
+
+#app {
+  min-height: 100%;
+  height: auto !important;
+  margin: 0 auto -280px;
+}
+
+.footer, .push {
+  height: 280px;
+}
