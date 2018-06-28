@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Sso;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use OAuth2\HttpFoundationBridge\Request as BridgedRequest;
-use OAuth2\HttpFoundationBridge\Response as BridgedResponse;
+use OAuth2\Response as OAuthResponse;
 
 class AuthorizationCodeController extends OAuth2BaseController
 {
@@ -14,11 +14,13 @@ class AuthorizationCodeController extends OAuth2BaseController
     {
         if (Auth::check()) {
             // If the user is logged in.
-            return $this->server->handleAuthorizeRequest(
+            /** @var OAuthResponse $oauth_res */
+            $oauth_res = $this->server->handleAuthorizeRequest(
                 BridgedRequest::createFromRequest($request),
-                new BridgedResponse(),
+                new OAuthResponse(),
                 true,
                 Auth::user()->id);
+            return $this->convertOAuthResponseToSymfonyResponse($oauth_res);
         } else {
             // If the user is NOT logged in.
 
