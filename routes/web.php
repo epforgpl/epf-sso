@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/', function () {
+    return redirect(env('EPF_WEBSITE_URL'));
+});
+
 Route::get('oauth/authorization', 'Sso\AuthorizationCodeController@handleRequest');
 Route::post('oauth/token', 'Sso\AccessTokenController@handleRequest');
 Route::get('oauth/userinfo', 'Sso\UserInfoController@handleRequest');

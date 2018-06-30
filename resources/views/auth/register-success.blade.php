@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
-<!-- TODO: Style it better. -->
-<head>
-</head>
-<body>
-    <div>
-        You are now registered. You are now logged in.
-        Click <a href="{{ \App\Util\OAuthUtil::getAuthorizationCodeRedirect() }}">here</a> to continue.
+@extends('layouts.app')
+
+@section('content')
+    <div class="card card-main card-register">
+        <div class="card-body text-center">
+
+            <h4 class="mb-4">Utworzono nowe konto</h4>
+
+            <p class="mb-2">
+                <a href="{{ \App\Util\OAuthUtil::getAuthorizationCodeRedirect() }}" class="btn btn-primary">Kontynuuj</a>
+            </p>
+
+        </div>
     </div>
-</body>
-</html>
+@endsection

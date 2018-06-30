@@ -1,41 +1,52 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="card card-main card-register">
+        <div class="card-body">
+
+            <form method="POST" action="{{ route('login') }}">
+                {{ csrf_field() }}
+                <fieldset>
+
+                    <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
+                        <label for="email">Adres e-mail</label>
+                        <input name="email" id="email" type="email" class="form-control" value="{{ old('email') }}" placeholder="Adres e-mail" required autofocus />
+                        @if ($errors->has('name'))
+                            <div class="invalid-feedback">{{ $errors->first('email') }}</div>
+                        @endif
+                    </div>
+
+                    <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
+                        <label for="password">Hasło</label>
+                        <input name="password" id="password" type="password" class="form-control" placeholder="Hasło" required />
+                        @if ($errors->has('password'))
+                            <div class="invalid-feedback">{{ $errors->first('password') }}</div>
+                        @endif
+                    </div>
+
+                </fieldset>
+                <div class="text-center mt-2">
+                    <p class="mb-4">
+                        <button type="submit" class="btn btn-primary">
+                            Zaloguj się
+                        </button>
+                    </p>
+                    <p class="mb-1 text-muted"><a href="{{ route('password.request') }}">Nie pamiętasz hasła?</a></p>
+                    <p class="mb-0 text-muted"><a href="{{ route('register') }}">Utwórz nowe konto</a></p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+<!--
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}" autocomplete="off">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Adres e-mail</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus autocomplete="off">
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Hasło</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required autocomplete="off">
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
@@ -89,4 +100,5 @@
         </div>
     </div>
 </div>
+-->
 @endsection
