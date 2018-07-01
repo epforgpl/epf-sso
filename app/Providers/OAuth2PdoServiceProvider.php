@@ -34,7 +34,8 @@ class OAuth2PdoServiceProvider extends ServiceProvider
                 [
                     'dsn' => $db_config['driver']
                         . ':dbname=' . $db_config['database']
-                        . ';host=' . $db_config['host'],
+                        . ';host=' . $db_config['host']
+                        . ';port=' . $db_config['port'],
                     'username' => $db_config['username'],
                     'password' => $db_config['password']
                 ],
