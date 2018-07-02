@@ -184,4 +184,4 @@ returns an OAuth2 access token & OpenID Connect id token to the client server.
 5. This endpoint invokes `LoginController@handleGoogleCallback`, which gets the user from `social_users` table based on
 id given by Google. It then sets the user on the session as authenticated and passes control to
 `AuthorizationCodeController@handleRequest`.
-6. Steps 11-14 as above.
+6. Steps 11-14 as above .
