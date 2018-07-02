@@ -1,0 +1,39 @@
+/*
+ * Put custom SCSS rules for the SSO portal here.
+ */
+
+// The three rules below are part of 'sticky footer' solution. https://stackoverflow.com/a/12239188
+
+html, body {
+  background-color: #FFF;
+}
+
+.menu-main {
+  text-align: center;
+  padding: 2rem 0 1rem;
+  .navbar-brand img {
+    width: 150px;
+  }
+  ul.services {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    > li {
+      margin: 0 1rem;
+      padding: 0;
+      img {
+        height: 40px;
+      }
+    }
+  }
+}
+
+.card-main {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #FAFAFA;
+  border-color: #EAEAEA;
+  box-shadow: 1px 1px 5px #EEE;
+}
