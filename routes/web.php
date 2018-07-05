@@ -33,3 +33,8 @@ Route::view('password/reset-success', 'auth.passwords.reset-success');
 Route::view('register-success', 'auth.register-success');
 Route::view('password/change','auth.passwords.change')->name('password.change');
 Route::post('password/change','Auth\ChangePasswordController@changePassword')->name('password.change.execute');
+
+Route::get('/o-portalu', 'InfoController@about')->name('about');
+Route::get('/dane-osobowe', 'InfoController@personal')->name('personal');
+Route::get('/regulamin', 'InfoController@terms')->name('terms');
+Route::get('/polityka-prywatnosci', 'InfoController@privacy')->name('privacy');
