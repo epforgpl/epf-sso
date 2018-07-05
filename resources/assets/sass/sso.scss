@@ -98,3 +98,13 @@ footer {
     content: counters(item, ".") ". "; counter-increment: item
   }
 }
+
+#registration-gdpr-notice {
+  display: flex;
+  justify-content: center;
+
+  & > div {
+    max-width:400px;
+    padding: 1.25rem;
+  }
+}
