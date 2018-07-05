@@ -30,13 +30,22 @@
         {{-- The 'push' element below is part of 'sticky footer' solution. https://stackoverflow.com/a/12239188 --}}
         <div class="push"></div>
     </div>
-    <footer>
+    <footer id="footer">
         <ul>
             <li><a href="{{ route('about') }}">O portalu</a></li>
             <li><a href="{{ route('personal') }}">Dane osobowe</a></li>
             <li><a href="{{ route('terms') }}">Regulamin</a></li>
             <li><a href="{{ route('privacy') }}">Polityka prywatności</a></li>
         </ul>
+        <cookie-law button-text="OK">
+            <div slot="message">
+                Informujemy, że nasz serwis internetowy wykorzystuje pliki cookies. Celem przetwarzania
+                danych zapisanych za pomocą cookies jest dostosowanie zawartości serwisu do preferencji
+                Użytkownika. Jeśli nie wyrażasz zgody, ustawienia dotyczące plików cookies możesz zmienić
+                w ustawieniach swojej przeglądarki. Więcej informacji na temat cookies znajdziesz
+                w <a href="{{ route('privacy') }}">Polityce Prywatności</a>.
+            </div>
+        </cookie-law>
     </footer>
 
     <!-- Scripts -->

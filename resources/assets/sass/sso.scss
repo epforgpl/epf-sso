@@ -108,3 +108,17 @@ footer {
     padding: 1.25rem;
   }
 }
+
+// .Cookie* rules are for EU cookie info banner, using https://github.com/apertureless/vue-cookie-law
+.Cookie {
+  justify-content: center !important;
+  background-color: #FAFAFA !important;
+}
+
+.Cookie__content {
+  max-width: 700px;
+}
+
+.Cookie__button {
+  background-color: #2780E3 !important;
+}
