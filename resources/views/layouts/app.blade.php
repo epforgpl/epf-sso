@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
-<!-- TODO: Style it better. -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,42 +25,19 @@
             </ul>
         </div>
 
-        <!--
-        <div class="container mt-4 mb-5">
-            <div class="row">
-                <div class="col-md-8 offset-2">
-                    <h1>Paszport ePaństwa</h1>
-                    <h4>Korzystaj z usług tworzonych przez Fundację ePaństwo</h4>
-                    <ul class="nav nav-tabs mt-5">
-                        @guest
-                            <li class="nav-item"><a class="nav-link {{ Request::is('*login*') ? 'active' : '' }}" href="{{ route('login') }}">Zaloguj się</a></li>
-                            <li class="nav-item"><a class="nav-link {{ Request::is('*register*') ? 'active' : '' }}" href="{{ route('register') }}">Zarejestruj się</a></li>
-                            @if (Request::is('*password/reset*'))
-                                <li class="nav-item"><a class="nav-link active" href="{{ route('password.request') }}">Zresetuj hasło</a></li>
-                            @endif
-                        @else
-                            <li class="nav-item"><a class="nav-link {{ Request::is('*password/change*') ? 'active' : '' }}" href="{{ route('password.change') }}">Zmień hasło</a></li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    Wyloguj się
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </div>
-        -->
-
         @yield('content')
 
         {{-- The 'push' element below is part of 'sticky footer' solution. https://stackoverflow.com/a/12239188 --}}
         <div class="push"></div>
     </div>
+    <footer>
+        <ul>
+            <li><a href="{{ route('about') }}">O portalu</a></li>
+            <li><a href="{{ route('personal') }}">Dane osobowe</a></li>
+            <li><a href="{{ route('terms') }}">Regulamin</a></li>
+            <li><a href="{{ route('privacy') }}">Polityka prywatności</a></li>
+        </ul>
+    </footer>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
