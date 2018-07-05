@@ -9,6 +9,7 @@ use App\Util\OAuthUtil;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
@@ -26,6 +27,19 @@ class LoginController extends Controller
 
     use AuthenticatesUsers {
         login as public parentLogin;
+    }
+
+    /**
+     * Override of a method from AuthenticatesUsers to have a Polish error message.
+     *
+     * @param Request $request
+     * @throws ValidationException
+     */
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        throw ValidationException::withMessages([
+            $this->username() => ['Niewłaściwy email lub hasło.'],
+        ]);
     }
 
     /**

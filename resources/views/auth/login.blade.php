@@ -10,23 +10,26 @@
 
                     <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
                         <label for="email">Adres e-mail</label>
-                        <input name="email" id="email" type="email" class="form-control" value="{{ old('email') }}" placeholder="Adres e-mail" required autofocus />
-                        @if ($errors->has('name'))
-                            <div class="invalid-feedback">{{ $errors->first('email') }}</div>
+                        <input name="email" id="email" type="email" class="form-control" value="{{ old('email') }}"
+                               placeholder="Adres e-mail" required autofocus />
+                        @if ($errors->has('email'))
+                            <div class="invalid-feedback d-block">{{ $errors->first('email') }}</div>
                         @endif
                     </div>
 
                     <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
                         <label for="password">Hasło</label>
-                        <input name="password" id="password" type="password" class="form-control" placeholder="Hasło" required />
+                        <input name="password" id="password" type="password" class="form-control"
+                               placeholder="Hasło" required />
                         @if ($errors->has('password'))
-                            <div class="invalid-feedback">{{ $errors->first('password') }}</div>
+                            <div class="invalid-feedback d-block">{{ $errors->first('password') }}</div>
                         @endif
                     </div>
 
                     <div class="form-group">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                            <input type="checkbox" class="custom-control-input" id="remember"
+                                   name="remember" {{ old('remember') ? 'checked' : '' }}>
                             <label class="custom-control-label" for="remember">Zapamiętaj mnie</label>
                         </div>
                     </div>
