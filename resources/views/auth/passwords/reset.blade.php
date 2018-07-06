@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Resetowanie hasła | SSO')
+
 @section('content')
 <div class="container">
     <div class="row">
