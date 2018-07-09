@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'O portalu | SSO')
+@section('title', 'O portalu')
 
 @section('styles')
     @parent

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Polityka prywatności | SSO')
+@section('title', 'Polityka prywatności')
 
 @section('styles')
     @parent

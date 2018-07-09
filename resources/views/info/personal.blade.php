@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Dane osobowe | SSO')
+@section('title', 'Dane osobowe')
 
 @section('styles')
     @parent
