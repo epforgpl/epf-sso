@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Rejestracja | SSO')
+@section('title', 'Rejestracja')
 
 @section('content')
     <div class="card card-main card-register">

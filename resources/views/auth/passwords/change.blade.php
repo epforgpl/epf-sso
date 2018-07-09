@@ -2,7 +2,7 @@
 
 @extends('layouts.app')
 
-@section('title', 'Zmiana hasła | SSO')
+@section('title', 'Zmiana hasła')
 
 @section('content')
     <div class="container">
