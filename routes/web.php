@@ -20,6 +20,7 @@ Route::post('oauth/token', 'Sso\AccessTokenController@handleRequest');
 Route::get('oauth/userinfo', 'Sso\UserInfoController@handleRequest');
 Route::get('oauth/amiloggedin', 'Sso\AmILoggedInController@handleRequest')->middleware('cors');;
 Route::get('oauth/jwks', 'Sso\JwksController@getJwks');
+Route::get('oauth/logout', 'Sso\LogoutController@logout');
 
 Route::get('oauth/facebook', 'Auth\LoginController@redirectToFacebook');
 Route::get('oauth/facebook/callback', 'Auth\LoginController@handleFacebookCallback');
