@@ -183,8 +183,8 @@
                                 <li>DANE OSOBOWE ZE ŹRÓDEŁ POWSZECHNIE DOSTĘPNYCH
                                     <ol>
                                         <li>Na potrzeby prowadzenia Serwisu, w tym stron internetowych
-                                            https://mojeprawo.io/, https://rejestr.io/ i
-                                            https://sejmometr.pl/ Administrator pobiera dane osobowe ze źródeł
+                                            https://rejestr.io/; https://mojeprawo.io/ i https://sejmometr.pl/
+                                            Administrator pobiera dane osobowe ze źródeł
                                             publicznie dostępnych takich jak:
                                             <ol>
                                                 <li>strony internetowe Sejmu RP i Senatu RP;</li>
