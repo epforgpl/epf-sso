@@ -51,12 +51,13 @@
                     </button>
                     -->
                     <hr/>
-                    <button class="btn btn-primary" onclick="location.href = '{{ url('/') }}/oauth/facebook';">
-                        Zaloguj się przez Facebook
-                    </button>
                 </div>
             </form>
-
+            <div class="text-center mt-2">
+                <button class="btn btn-primary" onclick="location.href = '{{ url('/') }}/oauth/facebook';">
+                    Zaloguj się przez Facebook
+                </button>
+            </div>
         </div>
     </div>
 @endsection
