@@ -50,7 +50,7 @@
                         Zaloguj się przez Google
                     </button>
                     -->
-                    <br/>
+                    <hr/>
                     <button class="btn btn-primary" onclick="location.href = '{{ url('/') }}/oauth/facebook';">
                         Zaloguj się przez Facebook
                     </button>
