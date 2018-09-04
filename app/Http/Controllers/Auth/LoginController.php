@@ -121,7 +121,6 @@ class LoginController extends Controller
         if (!$user) {
             $user = User::create([
                 'email' => $external_social_user->getEmail(),
-                'name' => $external_social_user->getName(),
                 'password' => 'none',
                 'hash_type' => 'NONE'
             ]);
