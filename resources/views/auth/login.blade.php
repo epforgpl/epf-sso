@@ -49,10 +49,11 @@
                     <button class="btn btn-primary" onclick="location.href = '{{ url('/') }}/oauth/google';">
                         Zaloguj się przez Google
                     </button>
+                    -->
+                    <hr/>
                     <button class="btn btn-primary" onclick="location.href = '{{ url('/') }}/oauth/facebook';">
                         Zaloguj się przez Facebook
                     </button>
-                    -->
                 </div>
             </form>
 
