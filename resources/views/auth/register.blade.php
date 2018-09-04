@@ -12,15 +12,6 @@
                 {{ csrf_field() }}
                 <fieldset>
 
-                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                        <label for="name">Imię i nazwisko</label>
-                        <input name="name" id="name" type="text" class="form-control" value="{{ old('name') }}"
-                               placeholder="Imię i nazwisko" required autofocus />
-                        @if ($errors->has('name'))
-                            <div class="invalid-feedback d-block">{{ $errors->first('name') }}</div>
-                        @endif
-                    </div>
-
                     <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
                         <label for="email">Adres e-mail</label>
                         <input name="email" id="email" type="email" class="form-control" value="{{ old('email') }}"
