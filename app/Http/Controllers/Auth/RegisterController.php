@@ -32,8 +32,6 @@ class RegisterController extends Controller
 
     /**
      * Create a new controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -49,9 +47,20 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:sso_users',
             'password' => 'required|string|min:6|confirmed',
+            'agree-tc' => 'required'
+        ], [
+            'confirmed' => 'Hasło i powtórzone hasło nie są identyczne.',
+            'email' => 'Nieprawidłowy format adresu email.',
+            'max' => [
+                'string'  => 'Pole nie może być dłuższe niż :max znaków.',
+            ],
+            'min' => [
+                'string'  => 'Pole nie może być krótsze niż :min znaków.',
+            ],
+            'required' => 'Pole jest wymagane.',
+            'unique' => 'Ten email został już zarejestrowany.'
         ]);
     }
 
@@ -64,7 +73,6 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);

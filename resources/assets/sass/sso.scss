@@ -2,9 +2,8 @@
  * Put custom SCSS rules for the SSO portal here.
  */
 
-// The three rules below are part of 'sticky footer' solution. https://stackoverflow.com/a/12239188
-
 html, body {
+  height: 100%; // Part of 'sticky footer' solution. https://stackoverflow.com/a/12239188
   background-color: #FFF;
 }
 
@@ -36,4 +35,90 @@ html, body {
   background-color: #FAFAFA;
   border-color: #EAEAEA;
   box-shadow: 1px 1px 5px #EEE;
+}
+
+footer {
+  height: 40px; // Part of 'sticky footer' solution. https://stackoverflow.com/a/12239188
+  flex-shrink: 0;
+  z-index: 0;
+  color: #666;
+  width: 100%;
+  font-size: 0.75rem;
+  padding: 5px 0;
+  text-align: center;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      display: inline;
+      margin: 0 .4rem;
+      &:before {
+        content: " \B7 ";
+        font-size: 1.5rem;
+        color: #BBB;
+        position: relative;
+        top: .25rem;
+        left: -.25rem;
+      }
+      &:first-child {
+        &:before {
+          display: none;
+        }
+      }
+      a {
+        color: #999;
+      }
+    }
+  }
+}
+
+#app { // Part of 'sticky footer' solution. https://stackoverflow.com/a/12239188
+  min-height: 100%;
+  height: auto !important;
+  margin: 0 auto -40px;
+}
+
+.push { // Part of 'sticky footer' solution. https://stackoverflow.com/a/12239188
+  height: 40px;
+}
+
+.info-pages {
+  // The rules on ol, li, and li:before cause correct numbering of nested numbered lists. See details here:
+  // https://stackoverflow.com/questions/4098195
+  ol {
+    counter-reset: item
+  }
+
+  li {
+    display: block
+  }
+
+  li:before {
+    content: counters(item, ".") ". "; counter-increment: item
+  }
+}
+
+#registration-gdpr-notice {
+  display: flex;
+  justify-content: center;
+
+  & > div {
+    max-width:400px;
+    padding: 1.25rem;
+  }
+}
+
+// .Cookie* rules are for EU cookie info banner, using https://github.com/apertureless/vue-cookie-law
+.Cookie {
+  justify-content: center !important;
+  background-color: #FAFAFA !important;
+}
+
+.Cookie__content {
+  max-width: 700px;
+}
+
+.Cookie__button {
+  background-color: #2780E3 !important;
 }

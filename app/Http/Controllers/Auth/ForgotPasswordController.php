@@ -29,4 +29,15 @@ class ForgotPasswordController extends Controller
     {
         $this->middleware('guest');
     }
+
+    /**
+     * Overridden to provide a message in Polish.
+     *
+     * @param $response
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    protected function sendResetLinkResponse($response)
+    {
+        return back()->with('status', 'Wysłaliśmy email z linkiem do resetowania hasła.');
+    }
 }

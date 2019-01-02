@@ -20,6 +20,7 @@ Route::post('oauth/token', 'Sso\AccessTokenController@handleRequest');
 Route::get('oauth/userinfo', 'Sso\UserInfoController@handleRequest');
 Route::get('oauth/amiloggedin', 'Sso\AmILoggedInController@handleRequest')->middleware('cors');;
 Route::get('oauth/jwks', 'Sso\JwksController@getJwks');
+Route::get('oauth/logout', 'Sso\LogoutController@logout');
 
 Route::get('oauth/facebook', 'Auth\LoginController@redirectToFacebook');
 Route::get('oauth/facebook/callback', 'Auth\LoginController@handleFacebookCallback');
@@ -33,3 +34,8 @@ Route::view('password/reset-success', 'auth.passwords.reset-success');
 Route::view('register-success', 'auth.register-success');
 Route::view('password/change','auth.passwords.change')->name('password.change');
 Route::post('password/change','Auth\ChangePasswordController@changePassword')->name('password.change.execute');
+
+Route::get('/o-portalu', 'InfoController@about')->name('about');
+Route::get('/dane-osobowe', 'InfoController@personal')->name('personal');
+Route::get('/regulamin', 'InfoController@terms')->name('terms');
+Route::get('/polityka-prywatnosci', 'InfoController@privacy')->name('privacy');
