@@ -10,19 +10,19 @@
                 {{ csrf_field() }}
                 <fieldset>
 
-                    <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
+                    <div class="form-group">
                         <label for="email">Adres e-mail</label>
-                        <input name="email" id="email" type="email" class="form-control" value="{{ old('email') }}"
-                               placeholder="Adres e-mail" required autofocus />
+                        <input name="email" id="email" type="email" value="{{ old('email') }}"
+                               placeholder="Adres e-mail" required autofocus class="form-control"/>
                         @if ($errors->has('email'))
                             <div class="invalid-feedback d-block">{{ $errors->first('email') }}</div>
                         @endif
                     </div>
 
-                    <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
+                    <div class="form-group">
                         <label for="password">Hasło</label>
-                        <input name="password" id="password" type="password" class="form-control"
-                               placeholder="Hasło" required />
+                        <input name="password" id="password" type="password" placeholder="Hasło" required
+                               class="form-control"/>
                         @if ($errors->has('password'))
                             <div class="invalid-feedback d-block">{{ $errors->first('password') }}</div>
                         @endif

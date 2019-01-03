@@ -10,36 +10,30 @@
 
                 <input type="hidden" name="token" value="{{ $token }}">
 
-                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                <div class="form-group">
                     <label for="email">Adres e-mail</label>
-                    <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required autofocus autocomplete="off">
-
+                    <input id="email" type="email" name="email" value="{{ $email or old('email') }}" required autofocus autocomplete="off"
+                           class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}">
                     @if ($errors->has('email'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('email') }}</strong>
-                        </span>
+                        <span class="help-block invalid-feedback">{{ $errors->first('email') }}</span>
                     @endif
                 </div>
 
-                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                <div class="form-group">
                     <label for="password">Nowe hasło</label>
-                    <input id="password" type="password" class="form-control" name="password" required autocomplete="off">
-
+                    <input id="password" type="password" name="password" required autocomplete="off"
+                           class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}">
                     @if ($errors->has('password'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('password') }}</strong>
-                        </span>
+                        <span class="help-block invalid-feedback">{{ $errors->first('password') }}</span>
                     @endif
                 </div>
 
-                <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                <div class="form-group">
                     <label for="password-confirm">Powtórz nowe hasło</label>
-                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="off">
-
+                    <input id="password-confirm" type="password" name="password_confirmation" required autocomplete="off"
+                           class="form-control {{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}">
                     @if ($errors->has('password_confirmation'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('password_confirmation') }}</strong>
-                        </span>
+                        <span class="help-block invalid-feedback">{{ $errors->first('password_confirmation') }}</span>
                     @endif
                 </div>
 
