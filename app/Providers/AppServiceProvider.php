@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\ServiceProvider;
@@ -22,6 +23,10 @@ class AppServiceProvider extends ServiceProvider
                     . 'available to logged-in users.');
             }
             return Hash::check($value, Auth::user()->password);
+        });
+
+        Validator::extend('is_registered_user', function ($attribute, $value, $parameters, $validator) {
+            return (User::whereEmail($value)->first() !== null);
         });
     }
 

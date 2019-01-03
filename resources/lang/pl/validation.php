@@ -15,6 +15,7 @@ return [
 
     'confirmed'            => 'Pole :attribute i jego powtórzenie nie są równe.',
     'different'            => 'Pola :attribute i :other muszą być różne.',
+    'is_registered_user'   => 'Nie ma takiego użytkownika.',
     'matches_current_password' => 'Niepoprawne obecne hasło.',
     'min'                  => [
         'numeric' => 'Pole :attribute musi wynosić co najmniej :min.',
