@@ -56,6 +56,8 @@ return [
 
     'attributes' => [
         'current-password' => '"Obecne hasło"',
-        'new-password' => '"Nowe hasło"'
+        'email' => '"Adres e-mail"',
+        'new-password' => '"Nowe hasło"',
+        'password' => '"Hasło"'
     ],
 ];
