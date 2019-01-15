@@ -13,18 +13,19 @@ html, body {
   .navbar-brand img {
     width: 150px;
   }
-  ul.services {
-    margin: 0;
+}
+
+ul.services {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  > li {
+    margin: 0 1rem;
     padding: 0;
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    > li {
-      margin: 0 1rem;
-      padding: 0;
-      img {
-        height: 40px;
-      }
+    img {
+      height: 40px;
     }
   }
 }
