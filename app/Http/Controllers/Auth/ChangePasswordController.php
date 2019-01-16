@@ -28,8 +28,9 @@ class ChangePasswordController extends Controller
 
         $user = Auth::user();
         $user->password = Hash::make($request->get('new-password'));
+        $user->hash_type = 'BCRYPT'; // In case they used to have SHA1.
         $user->save();
 
-        return redirect()->back()->with('success', 'Hasło zostało zmienione.');
+        return redirect()->to('/password/change-success');
     }
 }
