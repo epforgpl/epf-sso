@@ -33,6 +33,7 @@ Route::view('bad-request', 'bad-request');
 Route::view('password/reset-success', 'auth.passwords.reset-success');
 Route::view('register-success', 'auth.register-success');
 Route::view('password/change','auth.passwords.change')->name('password.change');
+Route::view('password/change-success','auth.passwords.change-success');
 Route::post('password/change','Auth\ChangePasswordController@changePassword')->name('password.change.execute');
 
 Route::get('/o-portalu', 'InfoController@about')->name('about');

@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Resetowanie hasła')
+@section('title', 'Zmiana hasła')
 
 @section('content')
     <div class="card card-main card-register">
         <div class="card-body">
 
             <div class="alert alert-success">
-                Twoje hasło zostało zresetowane.
+                Twoje hasło zostało zmienione.
             </div>
 
             <div class="text-center">

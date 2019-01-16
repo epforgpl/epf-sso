@@ -13,7 +13,7 @@
 <body>
     <div id="app">
         <div class="menu-main">
-            <a href="/" class="navbar-brand">
+            <a href="https://epf.org.pl" class="navbar-brand">
                 <img src="{{ asset('images/logo-epanstwo.svgz') }}" class="svg" width="187" height="63" alt="Fundacja ePanstwo">
             </a>
             <h4 class="mt-4">Zaloguj się do serwisów Fundacji ePaństwo</h4>
