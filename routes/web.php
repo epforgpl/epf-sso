@@ -26,7 +26,6 @@ Route::get('oauth/google/callback', 'Auth\LoginController@handleGoogleCallback')
 Auth::routes();
 
 Route::view('/', 'home.home')->middleware('auth');
-Route::view('bad-request', 'bad-request');
 Route::view('password/reset-success', 'auth.passwords.reset-success')->middleware('auth');
 Route::view('register-success', 'auth.register-success');
 Route::view('password/change','auth.passwords.change')->name('password.change')->middleware('auth');
