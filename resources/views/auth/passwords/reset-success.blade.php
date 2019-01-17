@@ -17,7 +17,9 @@
                     <li><a href="https://rejestr.io/sso-login"><img src="{{ asset('images/services/rejestrio.svg') }}"></a></li>
                     <li><a href="https://mojeprawo.io/sso-login"><img src="{{ asset('images/services/mojeprawo.svg') }}"></a></li>
                     <li><a href="https://sejmometr.pl/sso-login"><img src="{{ asset('images/services/sejmometr.svg') }}"></a></li>
+                    {{-- TODO: Uncomment when we want to show archiwum.io
                     <li><a href="https://archiwum.io/"><img src="{{ asset('images/services/archiwum.svg') }}"></a></li>
+                    --}}
                 </ul>
             </div>
         </div>
