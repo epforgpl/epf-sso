@@ -23,7 +23,9 @@
                     <li><a target="_blank" href="https://rejestr.io"><img src="{{ asset('images/services/rejestrio.svg') }}"></a></li>
                     <li><a target="_blank" href="https://mojeprawo.io"><img src="{{ asset('images/services/mojeprawo.svg') }}"></a></li>
                     <li><a target="_blank" href="https://sejmometr.pl"><img src="{{ asset('images/services/sejmometr.svg') }}"></a></li>
+                    {{-- TODO: Uncomment when we want to show archiwum.io
                     <li><a target="_blank" href="https://archiwum.io"><img src="{{ asset('images/services/archiwum.svg') }}"></a></li>
+                    --}}
                 </ul>
             @endsection
             @yield('header-links')
