@@ -16,7 +16,7 @@
             <a href="https://epf.org.pl" class="navbar-brand">
                 <img src="{{ asset('images/logo-epanstwo.svgz') }}" class="svg" width="187" height="63" alt="Fundacja ePanstwo">
             </a>
-            <h4 class="mt-4">Zaloguj się do serwisów Fundacji ePaństwo</h4>
+            <h4 class="mt-4">Logowanie do serwisów Fundacji ePaństwo</h4>
             {{-- Icons defined as section because we want to override them in some sub-templates. --}}
             @section('header-links')
                 <ul class="services mt-3">
