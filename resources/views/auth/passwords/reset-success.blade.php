@@ -7,7 +7,7 @@
         <div class="card-body">
 
             <div class="alert alert-success">
-                Twoje hasło zostało zresetowane. Jesteś teraz zalogowany.
+                Twoje hasło zostało zresetowane. Jesteś teraz zalogowany/-a.
             </div>
 
             <div class="text-center">
