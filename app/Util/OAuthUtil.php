@@ -8,9 +8,9 @@ class OAuthUtil
     /**
      * Assemble and return a URI pointing to the controller for handling authorization code issuance.
      *
-     * The URI params should have been stored in the session. If they are not, 'bad-request' is returned.
+     * The URI params should have been stored in the session. If they are not, '/' is returned.
      *
-     * @return string URI pointing to authorization code controller, or 'bad-request'.
+     * @return string URI pointing to authorization code controller, or '/'.
      */
     public static function getAuthorizationCodeRedirect() : string
     {
@@ -21,7 +21,7 @@ class OAuthUtil
         $state = session('epf_state');
 
         if (!$client_id || !$nonce || !$client_redirect_uri || !$scope || !$state) {
-            return 'bad-request';
+            return '/';
         }
 
         $server_redirect_uri = 'oauth/authorization';
