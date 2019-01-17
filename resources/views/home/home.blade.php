@@ -8,7 +8,7 @@
             {{-- TODO: Improve UI. --}}
 
             <div class="text-center">
-                Jesteś teraz zalogowany jako:
+                Jesteś teraz zalogowany/-a jako:
                 <br/><br/>
                 <b>{{ Auth::user()->email }}</b>
                 <br/><br/>
