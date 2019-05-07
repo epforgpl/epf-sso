@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "epforgpl/epf-sso",
+    "description": "SSO login system for ePanstwo Foundation websites",
+    "keywords": ["sso", "login", "laravel"],
     "license": "MIT",
     "type": "project",
     "require": {
