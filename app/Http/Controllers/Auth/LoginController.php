@@ -7,6 +7,7 @@ use App\Models\SocialUser;
 use App\Models\User;
 use App\Util\OAuthUtil;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
@@ -35,7 +36,7 @@ class LoginController extends Controller
      * @param Request $request
      * @throws ValidationException
      */
-    protected function sendFailedLoginResponse(Request $request)
+    protected function sendFailedLoginResponse(/* @noinspection PhpUnusedParameterInspection */  Request $request)
     {
         throw ValidationException::withMessages([
             $this->username() => ['Niewłaściwy email lub hasło.'],
@@ -51,8 +52,6 @@ class LoginController extends Controller
 
     /**
      * Create a new controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -78,9 +77,9 @@ class LoginController extends Controller
     /**
      * Obtain the user information from Facebook.
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
-    public function handleFacebookCallback() : \Illuminate\Http\RedirectResponse
+    public function handleFacebookCallback() : RedirectResponse
     {
         $this->redirectTo = OAuthUtil::getAuthorizationCodeRedirect();
         $fb_user = Socialite::driver('facebook')->user();
@@ -92,9 +91,9 @@ class LoginController extends Controller
     /**
      * Obtain the user information from Google.
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
-    public function handleGoogleCallback() : \Illuminate\Http\RedirectResponse
+    public function handleGoogleCallback() : RedirectResponse
     {
         $this->redirectTo = OAuthUtil::getAuthorizationCodeRedirect();
         $google_user = Socialite::driver('google')->user();
