@@ -14,20 +14,19 @@
             <form class="form-horizontal" method="POST" action="{{ route('password.email') }}" autocomplete="off">
                 {{ csrf_field() }}
 
-                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                    <label for="email" class="col-md-4 control-label">Adres e-mail</label>
-                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autocomplete="off">
-                    @if ($errors->has('name'))
-                        <div class="invalid-feedback">{{ $errors->first('email') }}</div>
+                <div class="form-group">
+                    <label for="email" class="control-label">Adres e-mail</label>
+                    <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="off"
+                           class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}">
+                    @if ($errors->has('email'))
+                        <span class="help-block invalid-feedback">{{ $errors->first('email') }}</span>
                     @endif
                 </div>
 
                 <div class="text-center mt-2">
-                    <p class="mb-4">
-                        <button type="submit" class="btn btn-primary">
-                            Wyślij link do zmiany hasła
-                        </button>
-                    </p>
+                    <button type="submit" class="btn btn-primary">
+                        Wyślij link do zmiany hasła
+                    </button>
                 </div>
             </form>
         </div>

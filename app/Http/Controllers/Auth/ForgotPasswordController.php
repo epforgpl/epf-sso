@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use Illuminate\Http\Request;
 
 class ForgotPasswordController extends Controller
 {
@@ -31,13 +32,14 @@ class ForgotPasswordController extends Controller
     }
 
     /**
-     * Overridden to provide a message in Polish.
+     * Overridden to add 'is_registered_user' to validation list.
      *
-     * @param $response
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Request $request
      */
-    protected function sendResetLinkResponse($response)
+    protected function validateEmail(Request $request)
     {
-        return back()->with('status', 'Wysłaliśmy email z linkiem do resetowania hasła.');
+        $this->validate($request, [
+            'email' => 'required|email|is_registered_user'
+        ]);
     }
 }

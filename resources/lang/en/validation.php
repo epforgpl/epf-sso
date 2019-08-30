@@ -61,6 +61,7 @@ return [
     'ip'                   => 'The :attribute must be a valid IP address.',
     'ipv4'                 => 'The :attribute must be a valid IPv4 address.',
     'ipv6'                 => 'The :attribute must be a valid IPv6 address.',
+    'is_registered_user'   => 'There is no such user.',
     'json'                 => 'The :attribute must be a valid JSON string.',
     'lt'                   => [
         'numeric' => 'The :attribute must be less than :value.',
@@ -74,6 +75,7 @@ return [
         'string'  => 'The :attribute must be less than or equal :value characters.',
         'array'   => 'The :attribute must not have more than :value items.',
     ],
+    'matches_current_password' => 'Incorrect current password.',
     'max'                  => [
         'numeric' => 'The :attribute may not be greater than :max.',
         'file'    => 'The :attribute may not be greater than :max kilobytes.',
