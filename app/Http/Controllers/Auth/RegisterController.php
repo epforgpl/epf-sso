@@ -48,7 +48,8 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'email' => 'required|string|email|max:255|unique:sso_users',
-            'password' => 'required|string|min:6|confirmed',
+            // Regex below: password must have at least one letter (either case) and one digit.
+            'password' => 'required|string|min:8|regex:/^(?=.*[a-zA-Z])(?=.*\d).+$/|confirmed',
             'agree-tc' => 'required'
         ], [
             'confirmed' => 'Hasło i powtórzone hasło nie są identyczne.',
@@ -59,6 +60,7 @@ class RegisterController extends Controller
             'min' => [
                 'string'  => 'Pole nie może być krótsze niż :min znaków.',
             ],
+            'regex' => 'Hasło musi zawierać co najmniej jedną literę i jedną cyfrę.',
             'required' => 'Pole jest wymagane.',
             'unique' => 'Ten email został już zarejestrowany.'
         ]);

@@ -24,6 +24,7 @@
 
                 <div class="form-group">
                     <label for="new-password" class="control-label">Nowe hasło</label>
+                    <small>(min. 8 znaków, w tym litera i cyfra)</small>
                     <input id="new-password" type="password" name="new-password" required autocomplete="off"
                            class="form-control {{ $errors->has('new-password') ? ' is-invalid' : '' }}">
                     @if ($errors->has('new-password'))

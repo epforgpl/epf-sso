@@ -23,6 +23,7 @@
 
                     <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
                         <label for="password">Hasło</label>
+                        <small>(min. 8 znaków, w tym litera i cyfra)</small>
                         <input name="password" id="password" type="password" class="form-control"
                                placeholder="Hasło" required />
                         @if ($errors->has('password'))
