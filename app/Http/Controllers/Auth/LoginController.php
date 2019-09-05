@@ -104,6 +104,7 @@ class LoginController extends Controller
 
     private function createOrGetUser(\Laravel\Socialite\Two\User $external_social_user, string $provider) : User
     {
+        /** @noinspection PhpUndefinedMethodInspection */
         $social_user = SocialUser::whereProvider($provider)
             ->whereProviderUserId($external_social_user->getId())
             ->first();
@@ -116,6 +117,7 @@ class LoginController extends Controller
             'provider_user_id' => $external_social_user->getId(),
             'provider' => $provider
         ]);
+        /** @noinspection PhpUndefinedMethodInspection */
         $user = User::whereEmail($external_social_user->getEmail())->first();
         if (!$user) {
             $user = User::create([
