@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 /**
  * Controller for changing user password.
@@ -21,10 +22,21 @@ class ChangePasswordController extends Controller
 
     public function changePassword(Request $request)
     {
-        $this->validate($request, [
+        $validator = Validator::make($request->all(), [
             'current-password' => 'required|matches_current_password',
-            'new-password' => 'required|string|min:6|different:current-password|confirmed',
+            // Regex below: password must have at least one letter (either case) and one digit.
+            'new-password' => 'required|string|min:8|regex:/^(?=.*[a-zA-Z])(?=.*\d).+$/'
+                .'|different:current-password|confirmed',
+        ], [
+            'confirmed' => 'Hasło i powtórzone hasło nie są identyczne.',
+            'min' => [
+                'string'  => 'Pole nie może być krótsze niż :min znaków.',
+            ],
+            'regex' => 'Hasło musi zawierać co najmniej jedną literę i jedną cyfrę.',
+            'required' => 'Pole jest wymagane.',
         ]);
+
+        $validator->validate();
 
         $user = Auth::user();
         $user->password = Hash::make($request->get('new-password'));
