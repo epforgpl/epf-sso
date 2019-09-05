@@ -3,9 +3,16 @@
 namespace App\Models;
 
 use App\Auth\ResetPasswordNotification;
+use Eloquent;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * Represents an SSO user.
+ *
+ * @package App\Models
+ * @mixin Eloquent
+ */
 class User extends Authenticatable
 {
     use Notifiable;
