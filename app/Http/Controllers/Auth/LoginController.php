@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\SocialUser;
 use App\Models\User;
+use App\Util\Constants;
 use App\Util\OAuthUtil;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\RedirectResponse;
@@ -84,6 +85,7 @@ class LoginController extends Controller
     {
         $this->redirectTo = OAuthUtil::getAuthorizationCodeRedirect();
         try {
+            /** @var \Laravel\Socialite\Two\User $fb_user */
             $fb_user = Socialite::driver('facebook')->user();
         } catch (\Exception $e) {
             // This will happen if user clicks 'Cancel' on Facebook when presented with a screen asking to give
@@ -95,9 +97,16 @@ class LoginController extends Controller
                 && (strpos($e->getMessage(), $expected_msg1) !== false)
                 && (strpos($e->getMessage(), $expected_msg2) !== false)
                 && (strpos($e->getMessage(), $expected_msg3) !== false)) {
-                return redirect('/register-fb-failure');
+                return redirect()->route('register-fb-failure',
+                    ['reason' => Constants::REGISTER_FB_FAILURE_NOT_ALLOWED]);
             }
             throw $e;
+        }
+        if (!$fb_user->getEmail()) {
+            // This will happen if user gives permission to our FB app, but unchecks the box regarding whether to
+            // provide email address.
+            return redirect()->route('register-fb-failure',
+                ['reason' => Constants::REGISTER_FB_FAILURE_EMAIL_NOT_PROVIDED]);
         }
         $user = $this->createOrGetUser($fb_user, 'facebook');
         Auth::login($user);
