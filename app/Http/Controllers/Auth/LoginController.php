@@ -97,16 +97,16 @@ class LoginController extends Controller
                 && (strpos($e->getMessage(), $expected_msg1) !== false)
                 && (strpos($e->getMessage(), $expected_msg2) !== false)
                 && (strpos($e->getMessage(), $expected_msg3) !== false)) {
-                return redirect()->route('register-fb-failure',
-                    ['reason' => Constants::REGISTER_FB_FAILURE_NOT_ALLOWED]);
+                return redirect()->route('register-fb-failure')
+                    ->with('reason', Constants::REGISTER_FB_FAILURE_NOT_ALLOWED);
             }
             throw $e;
         }
         if (!$fb_user->getEmail()) {
             // This will happen if user gives permission to our FB app, but unchecks the box regarding whether to
             // provide email address.
-            return redirect()->route('register-fb-failure',
-                ['reason' => Constants::REGISTER_FB_FAILURE_EMAIL_NOT_PROVIDED]);
+            return redirect()->route('register-fb-failure')
+                ->with('reason', Constants::REGISTER_FB_FAILURE_EMAIL_NOT_PROVIDED);
         }
         $user = $this->createOrGetUser($fb_user, 'facebook');
         Auth::login($user);
