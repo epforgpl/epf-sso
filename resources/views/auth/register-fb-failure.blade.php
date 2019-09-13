@@ -17,7 +17,7 @@
                     {{-- Clear status after displaying the message. --}}
                     @php(session(['status' => null]))
                 @else
-                    @php(\Illuminate\Support\Facades\Log::error('FB registration failure reason not present.');)
+                    @php(\Illuminate\Support\Facades\Log::error('FB registration failure reason not present.'))
                     Wystąpił błąd. Skontaktuj się z nami, spróbuj jeszcze raz, lub zarejestruj się podając swój email.
                 @endif
             </div>

@@ -92,7 +92,8 @@ class LoginController extends Controller
             // permission to our FB app.
             $expected_msg1 = 'Client error: `POST https://graph.facebook.com/';
             $expected_msg2 = 'resulted in a `400 Bad Request`';
-            $expected_msg3 = 'response:{"error":{"message":"Missing authorization code","type":"OAuthException"';
+            $expected_msg3 = 'response:' . "\n"
+                . '{"error":{"message":"Missing authorization code","type":"OAuthException"';
             if (($e->getCode() === 400)
                 && (strpos($e->getMessage(), $expected_msg1) !== false)
                 && (strpos($e->getMessage(), $expected_msg2) !== false)
