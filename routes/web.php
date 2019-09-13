@@ -28,6 +28,7 @@ Auth::routes();
 Route::view('/', 'home.home')->middleware('auth');
 Route::view('password/reset-success', 'auth.passwords.reset-success')->middleware('auth');
 Route::view('register-success', 'auth.register-success')->middleware('auth');
+Route::view('register-fb-failure', 'auth.register-fb-failure');
 Route::view('password/change','auth.passwords.change')->name('password.change')->middleware('auth');
 Route::view('password/change-success','auth.passwords.change-success')->middleware('auth');
 Route::post('password/change','Auth\ChangePasswordController@changePassword')->name('password.change.execute')
