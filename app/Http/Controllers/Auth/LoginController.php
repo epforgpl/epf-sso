@@ -78,11 +78,27 @@ class LoginController extends Controller
      * Obtain the user information from Facebook.
      *
      * @return RedirectResponse
+     * @throws \Exception
      */
     public function handleFacebookCallback() : RedirectResponse
     {
         $this->redirectTo = OAuthUtil::getAuthorizationCodeRedirect();
-        $fb_user = Socialite::driver('facebook')->user();
+        try {
+            $fb_user = Socialite::driver('facebook')->user();
+        } catch (\Exception $e) {
+            // This will happen if user clicks 'Cancel' on Facebook when presented with a screen asking to give
+            // permission to our FB app.
+            $expected_msg1 = 'Client error: `POST https://graph.facebook.com/';
+            $expected_msg2 = 'resulted in a `400 Bad Request`';
+            $expected_msg3 = 'response:{"error":{"message":"Missing authorization code","type":"OAuthException"';
+            if (($e->getCode() === 400)
+                && (strpos($e->getMessage(), $expected_msg1) !== false)
+                && (strpos($e->getMessage(), $expected_msg2) !== false)
+                && (strpos($e->getMessage(), $expected_msg3) !== false)) {
+                return redirect('/register-fb-failure');
+            }
+            throw $e;
+        }
         $user = $this->createOrGetUser($fb_user, 'facebook');
         Auth::login($user);
         return redirect()->intended($this->redirectTo);
