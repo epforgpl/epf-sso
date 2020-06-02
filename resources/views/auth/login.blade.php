@@ -39,7 +39,7 @@
                 </fieldset>
                 <div class="text-center mt-2">
                     <p class="mb-4">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary" id="dusk-login-button">
                             Zaloguj się
                         </button>
                     </p>
