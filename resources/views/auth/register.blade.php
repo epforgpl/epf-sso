@@ -70,10 +70,10 @@
     </div>
     <div id="registration-gdpr-notice">
         <div>
-            <p>Administratorem Twoich danych osobowych jest Fundacja ePaństwo z siedzibą w Zgorzale przy
-                ul. Pliszki 2B/1 05-500 Mysiadło.</p>
+            <p>Administratorem Twoich danych osobowych jest Fundacja ePaństwo z siedzibą w Warszawie,
+                przy ul. Nowogrodzkiej 25/37, 00-511 Warszawa</p>
             <p>Twoje dane osobowe będą przetwarzane w celu rejestracji i obsługi konta użytkownika w serwisie
-                archiwum.io, mojeprawo.io, rejestr.io oraz sejmometr.pl, a także w celach statystycznych
+                rejestr.io, a także w celach statystycznych
                 i analitycznych Fundacji. <a href="{{ route('personal') }}" target="_blank">Więcej informacji
                     na temat przetwarzania danych osobowych.</a></p>
         </div>
