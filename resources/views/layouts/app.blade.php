@@ -31,20 +31,23 @@
 <body>
     <div id="app">
         <div class="menu-main">
-            <a href="https://epf.org.pl" class="navbar-brand">
+            <a href="https://rejestr.io" class="navbar-brand">
+                {{-- TODO: Uncomment if we ever bring back / have portals other than rejestr.io.
                 <img src="{{ asset('images/logo-epanstwo.svgz') }}" class="svg" width="187" height="63" alt="Fundacja ePanstwo">
+                --}}
+                <img src="{{ asset('images/services/rejestrio.svg') }}" width="187" height="63">
             </a>
-            <h4 class="mt-4">Logowanie do serwisów Fundacji ePaństwo</h4>
+            <h4 class="mt-4">Logowanie do serwisu Rejestr.io</h4>
             {{-- Icons defined as section because we want to override them in some sub-templates. --}}
             @section('header-links')
+                {{-- TODO: Uncomment if we ever bring back / have portals other than rejestr.io.
                 <ul class="services mt-3">
                     <li><a target="_blank" href="https://rejestr.io"><img src="{{ asset('images/services/rejestrio.svg') }}"></a></li>
                     <li><a target="_blank" href="https://mojeprawo.io"><img src="{{ asset('images/services/mojeprawo.svg') }}"></a></li>
                     <li><a target="_blank" href="https://sejmometr.pl"><img src="{{ asset('images/services/sejmometr.svg') }}"></a></li>
-                    {{-- TODO: Uncomment when we want to show archiwum.io
                     <li><a target="_blank" href="https://archiwum.io"><img src="{{ asset('images/services/archiwum.svg') }}"></a></li>
-                    --}}
                 </ul>
+                --}}
             @endsection
             @yield('header-links')
         </div>
