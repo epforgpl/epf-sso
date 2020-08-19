@@ -11,13 +11,13 @@
             </div>
 
             <div class="text-center">
-                <a href="https://rejestr.io/login">Przejdź do portalu Rejestr.io</a>
+                <a href="https://rejestr.io/login-redirect">Przejdź do portalu Rejestr.io</a>
 
                 {{-- TODO: Uncomment if we ever bring back sejmometr or mojeprawo.
                 Przejdź do portalu:
 
                 <ul class="services mt-3">
-                    <li><a href="https://rejestr.io/login"><img src="{{ asset('images/services/rejestrio.svg') }}"></a></li>
+                    <li><a href="https://rejestr.io/login-redirect"><img src="{{ asset('images/services/rejestrio.svg') }}"></a></li>
                     <li><a href="https://mojeprawo.io/sso-login"><img src="{{ asset('images/services/mojeprawo.svg') }}"></a></li>
                     <li><a href="https://sejmometr.pl/sso-login"><img src="{{ asset('images/services/sejmometr.svg') }}"></a></li>
                     <li><a href="https://archiwum.io/"><img src="{{ asset('images/services/archiwum.svg') }}"></a></li>
