@@ -11,7 +11,6 @@
             </div>
 
             <div class="text-center">
-                {{-- TODO: This redirect doesn't work. --}}
                 <a href="https://rejestr.io/login">Przejdź do portalu Rejestr.io</a>
 
                 {{-- TODO: Uncomment if we ever bring back sejmometr or mojeprawo.
